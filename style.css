@@ -1,0 +1,75 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --num-chunks: 0;
+  --chunk-width: 0;
+  --chunk-height: 0;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+#container {
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(
+    hsl(257, 96%, 9%) 0%,
+    hsl(0, 0%, 0%) 100%
+  );
+}
+
+.layer {
+  position: absolute;
+  display: grid;
+  width: calc(var(--num-chunks) * var(--chunk-width));
+  height: calc(var(--num-chunks) * var(--chunk-height));
+  grid-template-columns: repeat(var(--num-chunks), minmax(0, 1fr));
+  left: calc(-0.5 * var(--chunk-width));
+  top: calc(-0.5 * var(--chunk-height));
+}
+.layer:first-of-type .chunk {
+  outline: 0px solid red;
+}
+
+.chunk {
+  position: relative;
+  width: var(--chunk-width);
+  height: var(--chunk-height);
+}
+
+.star {
+  position: absolute;
+  width: var(--r);
+  height: var(--r);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff7cdc0;
+}
+
+#rocket {
+  position: absolute;
+  z-index: 1000;
+
+  width: 0;
+  height: 0;
+  
+  border-top-style: solid;
+  border-top-color: transparent;
+  border-bottom-style: solid;
+  border-bottom-color: transparent;
+  border-left-style: solid;
+  border-left-color: #fff;
+  transform-origin: 33% 50%;
+}
+
+.particle {
+  z-index: 999;
+  position: absolute;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
