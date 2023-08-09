@@ -88,15 +88,3 @@ document.addEventListener("keyup", (e) => {
 });
 
 Init();
-
-/*
-
-TODO:
-
-change thrust --> slower particles
-
-add planets on rocket layer --> gravity
-
-zoom on mouse scroll --> smaller & "slower" rocket & planets (no change to stars)
-
-*/
